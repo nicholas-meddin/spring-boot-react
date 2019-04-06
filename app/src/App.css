@@ -27,6 +27,15 @@
   margin-top: 20px;
 }
 
+h1 {
+  color: azure;
+}
+
+h3 {
+  text-align: center;
+  color: azure;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

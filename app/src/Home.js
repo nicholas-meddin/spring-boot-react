@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
 import AppNavbar from './AppNavbar';
+import HomeHero from './HomeHero';
+import GoldiSurvey from './GoldiSurvey';
 import { Link } from 'react-router-dom';
 import { Button, Container } from 'reactstrap';
 import { withCookies } from 'react-cookie';
@@ -50,7 +52,7 @@ class Home extends Component {
     render() {
         const message = this.state.user ?
             <h2>Welcome, {this.state.user.name}!</h2> :
-            <p>Please log in to manage your JUG Tour.</p>;
+            <p>Log in to get started.</p>;
 
         const button = this.state.isAuthenticated ?
             <div>
@@ -63,10 +65,14 @@ class Home extends Component {
         return (
             <div>
                 <AppNavbar/>
+
                 <Container fluid>
+                    <HomeHero/>
                     {message}
                     {button}
+                    <GoldiSurvey/>
                 </Container>
+
             </div>
         );
     }
