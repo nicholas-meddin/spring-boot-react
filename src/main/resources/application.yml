@@ -1,0 +1,16 @@
+spring:
+  profiles:
+    active: @spring.profiles.active@
+  security:
+    oauth2:
+      client:
+        registration:
+          okta:
+            client-id: 0oafo21hnOvCMU6OX356
+            client-secret: PFG2rK2bU2_jybPcSqApSdDQoJZTGw5iaerYFJ7S
+            scope: openid, email, profile
+        provider:
+          okta:
+            issuer-uri: https://dev-586244.okta.com/oauth2/default
+server:
+  port: 8081
