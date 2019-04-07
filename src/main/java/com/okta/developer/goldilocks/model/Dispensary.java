@@ -13,7 +13,6 @@ import java.util.Set;
 @AllArgsConstructor
 @Builder
 @Entity
-@Table(name = "dispensaries")
 public class Dispensary {
 
     @Id
@@ -29,6 +28,5 @@ public class Dispensary {
     private String phoneNumber;
     private String website;
     private Boolean deliveryOnly;
-    @ManyToMany
-    private Set<User> subscribers;
+
 }

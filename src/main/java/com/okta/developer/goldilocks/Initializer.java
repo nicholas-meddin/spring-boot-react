@@ -7,6 +7,7 @@ import org.springframework.stereotype.Component;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashSet;
+import java.util.Set;
 import java.util.stream.Stream;
 
 @Component
@@ -24,11 +25,14 @@ class Initializer implements CommandLineRunner {
                 repository.save(new Product(name))
         );
 
+        HashSet<String> flavors = new HashSet<>(Arrays.asList("EARTHY", "PINE", "LEMON"));
+        HashSet<String> effects = new HashSet<>(Arrays.asList("RELAXED", "EUPHORIC", "SLEEPY", "UPLIFTED", "HAPPY"));
+
         Product product = repository.findByName("OMNIA | PREMIUM FLOWER | XXX 3.5G");
         Strain e = Strain.builder().name("XXX OG")
                 .description("XXX OG is a hard-hitting indica that took 1st place in the 2014 Los Angeles Cannabis Cup.")
-                .flavors(new HashSet<>(Arrays.asList("EARTHY", "PINE", "LEMON")))
-                .effects(new HashSet<>(Arrays.asList("RELAXED", "EUPHORIC", "SLEEPY", "UPLIFTED", "HAPPY")))
+                .flavors(flavors)
+                .effects(effects)
                 .build();
         Dispensary d = Dispensary.builder()
                 .name("Luvbrite Collective")

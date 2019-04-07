@@ -6,6 +6,7 @@ import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Set;
 
 @Data
@@ -25,9 +26,11 @@ public class Product {
     @NonNull
     private String name;
     private Type type;
+    @ManyToOne(cascade=CascadeType.PERSIST)
     private Dispensary dispensary;
     private int price;
-    private Set<String> tags;
+
+    private HashSet<String> tags;
 
     @ManyToOne(cascade=CascadeType.PERSIST)
     private User user;
