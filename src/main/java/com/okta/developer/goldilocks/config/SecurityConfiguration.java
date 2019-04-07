@@ -1,4 +1,4 @@
-package com.okta.developer.jugtours.config;
+package com.okta.developer.goldilocks.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Profile;

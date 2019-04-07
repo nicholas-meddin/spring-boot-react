@@ -1,4 +1,4 @@
-package com.okta.developer.jugtours.model;
+package com.okta.developer.goldilocks.model;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -12,22 +12,27 @@ import java.util.Set;
 @NoArgsConstructor
 @RequiredArgsConstructor
 @Entity
-@Table(name = "user_group")
-public class Group {
+@Table(name = "user_product")
+public class Product {
+
+    public enum Type {
+        FLOWER, CONCENTRATE, EDIBLE, PRE_ROLL, CARTRIDGE, TOPICAL, OTHER
+    }
 
     @Id
     @GeneratedValue
     private Long id;
     @NonNull
     private String name;
-    private String address;
-    private String city;
-    private String stateOrProvince;
-    private String country;
-    private String postalCode;
+    private Type type;
+    private Dispensary dispensary;
+    private int price;
+    private Set<String> tags;
+
     @ManyToOne(cascade=CascadeType.PERSIST)
     private User user;
 
     @OneToMany(fetch = FetchType.EAGER, cascade=CascadeType.ALL)
-    private Set<Event> events;
+    private Set<Strain> strains;
 }
+

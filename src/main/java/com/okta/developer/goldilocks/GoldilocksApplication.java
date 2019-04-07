@@ -1,13 +1,13 @@
-package com.okta.developer.jugtours;
+package com.okta.developer.goldilocks;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class JugtoursApplication {
+public class GoldilocksApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(JugtoursApplication.class, args);
+		SpringApplication.run(GoldilocksApplication.class, args);
 	}
 
 }

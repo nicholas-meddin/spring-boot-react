@@ -1,4 +1,4 @@
-package com.okta.developer.jugtours.web;
+package com.okta.developer.goldilocks.web;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

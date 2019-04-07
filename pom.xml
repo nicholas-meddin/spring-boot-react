@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.okta.developer</groupId>
-	<artifactId>jugtours</artifactId>
+	<artifactId>goldilocks</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>jugtours</name>
+	<name>goldilocks</name>
 	<description>Demo project for Spring Boot</description>
 
 	<properties>
