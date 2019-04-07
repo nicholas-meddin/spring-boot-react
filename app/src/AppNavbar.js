@@ -35,8 +35,6 @@ class AppNavbar extends Component {
     render() {
         const button = this.state.isAuthenticated ?
             <div>
-                <Button color="link"><Link to="/groups">Manage JUG Tour</Link></Button>
-                <br/>
                 <Button color="link" onClick={this.logout}>Logout</Button>
             </div> :
             <Button color="primary" onClick={this.login}>Login</Button>;

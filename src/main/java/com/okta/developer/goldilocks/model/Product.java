@@ -26,7 +26,7 @@ public class Product {
     @NonNull
     private String name;
     private Type type;
-    @ManyToOne(cascade=CascadeType.PERSIST)
+    @ManyToOne(fetch = FetchType.EAGER, cascade=CascadeType.ALL)
     private Dispensary dispensary;
     private int price;
 

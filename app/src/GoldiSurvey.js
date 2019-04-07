@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import * as Survey from "survey-react";
 import "survey-react/survey.css";
-import {Card, Col, Container, Row} from 'reactstrap';
+import {Col, Container, Row} from 'reactstrap';
 
 export default class GoldiSurvey extends Component {
 
@@ -138,16 +138,6 @@ export default class GoldiSurvey extends Component {
                             "Edible",
                             "No preference"
                         ]
-                    }
-                ]
-            },
-            {
-                name: "page10",
-                elements: [
-                    {
-                        type: "text",
-                        name: "question10",
-                        title: "Do you take any medications? If so, please list them here."
                     }
                 ]
             },

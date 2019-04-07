@@ -7,7 +7,6 @@ import org.springframework.stereotype.Component;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashSet;
-import java.util.Set;
 import java.util.stream.Stream;
 
 @Component
@@ -21,7 +20,7 @@ class Initializer implements CommandLineRunner {
 
     @Override
     public void run(String... strings) {
-        Stream.of("OMNIA | PREMIUM FLOWER | XXX 3.5G", "Product 2", "Product 3").forEach(name ->
+        Stream.of("OMNIA | PREMIUM FLOWER | XXX 3.5G", "Product 2").forEach(name ->
                 repository.save(new Product(name))
         );
 
@@ -48,6 +47,13 @@ class Initializer implements CommandLineRunner {
         product.setDispensary(d);
         product.setPrice(38);
         product.setType(Product.Type.FLOWER);
+        repository.save(product);
+
+        product = repository.findByName("Product 2");
+        e = Strain.builder().description("Description 2").build();
+        d = Dispensary.builder().address("Address 2").city("Test City").stateOrProvince("Test State").build();
+        product.setStrains(Collections.singleton(e));
+        product.setDispensary(d);
         repository.save(product);
 
         repository.findAll().forEach(System.out::println);

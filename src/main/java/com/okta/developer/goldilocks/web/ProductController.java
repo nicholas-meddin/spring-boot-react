@@ -36,7 +36,7 @@ class ProductController {
 
     @GetMapping("/products")
     Collection<Product> products(Principal principal) {
-        return productRepository.findAllByUserId(principal.getName());
+        return productRepository.findAll();
     }
 
     @GetMapping("/product/{id}")

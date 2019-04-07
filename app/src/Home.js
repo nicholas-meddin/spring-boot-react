@@ -3,6 +3,8 @@ import './App.css';
 import AppNavbar from './AppNavbar';
 import HomeHero from './HomeHero';
 import GoldiSurvey from './GoldiSurvey';
+import ProductList from './ProductList';
+
 import { Link } from 'react-router-dom';
 import { Button, Container } from 'reactstrap';
 import { withCookies } from 'react-cookie';
@@ -56,11 +58,15 @@ class Home extends Component {
 
         const button = this.state.isAuthenticated ?
             <div>
-                <Button color="link"><Link to="/groups">Manage JUG Tour</Link></Button>
+                <Button color="link"><Link to="/products">Browse Products</Link></Button>
                 <br/>
                 <Button color="link" onClick={this.logout}>Logout</Button>
             </div> :
             <Button color="primary" onClick={this.login}>Login</Button>;
+
+        const gsurvey = this.state.isAuthenticated ?
+            <GoldiSurvey/> : <div><p>Log in to get started</p></div>
+
 
         return (
             <div>
@@ -68,9 +74,8 @@ class Home extends Component {
 
                 <Container fluid>
                     <HomeHero/>
-                    {message}
+                    {gsurvey}
                     {button}
-                    <GoldiSurvey/>
                 </Container>
 
             </div>

@@ -30,3 +30,4 @@ public class Dispensary {
     private Boolean deliveryOnly;
 
 }
+
