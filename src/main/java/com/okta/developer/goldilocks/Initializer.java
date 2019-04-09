@@ -54,6 +54,8 @@ class Initializer implements CommandLineRunner {
         d = Dispensary.builder().address("Address 2").city("Test City").stateOrProvince("Test State").build();
         product.setStrains(Collections.singleton(e));
         product.setDispensary(d);
+        product.setPrice(12);
+        product.setType(Product.Type.OTHER);
         repository.save(product);
 
         repository.findAll().forEach(System.out::println);

@@ -28,12 +28,23 @@
 }
 
 h1 {
-  color: azure;
+  text-align: center;
+  color: black;
 }
 
 h3 {
   text-align: center;
-  color: azure;
+  color: black;
+}
+
+#Hero {
+  width: 100%;
+  height: 100vh;
+}
+
+#Header {
+  padding-top: 50px;
+  padding-bottom: 50px;
 }
 
 @keyframes App-logo-spin {

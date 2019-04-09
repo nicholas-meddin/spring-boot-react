@@ -56,6 +56,7 @@ class ProductList extends Component {
                 <td>{product.strains.map(strain => {
                     return <div key={strain.id}>{strain.name}: {strain.description}</div>
                 })}</td>
+                <td>{product.type}</td>
                 <td>
                     <ButtonGroup>
                         <Button size="sm" color="primary" tag={Link} to={"/products/" + product.id}>Edit</Button>
@@ -76,7 +77,8 @@ class ProductList extends Component {
                         <tr>
                             <th width="20%">Name</th>
                             <th width="20%">Location</th>
-                            <th>Strains</th>
+                            <th>Strain</th>
+                            <th>Type</th>
                             <th width="10%">Actions</th>
                         </tr>
                         </thead>

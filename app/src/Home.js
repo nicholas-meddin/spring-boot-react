@@ -72,11 +72,11 @@ class Home extends Component {
             <div>
                 <AppNavbar/>
 
-                <Container fluid>
+
                     <HomeHero/>
                     {gsurvey}
                     {button}
-                </Container>
+
 
             </div>
         );

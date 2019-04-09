@@ -1,9 +1,10 @@
 import React from 'react';
-import {Container, Row, Col} from 'reactstrap';
+import {Container, Button, Row, Col} from 'reactstrap';
 
 const styles = {
     style: {
-        backgroundImage: `url(http://source.unsplash.com/0BhSKStVtdM)`,
+        backgroundColor: `antiqueWhite`,
+
 
     }
 };
@@ -11,16 +12,26 @@ const styles = {
 export default class HomeHero extends React.Component {
     render() {
         return (
-            <Container fluid style={styles.style}>
 
-                <Row>
-                    <Col sm="12" md={{size: 'auto', offset: 5}}>
-                        <h1>A BETTER EXPERIENCE</h1>
-                        <h3>PLANTS JUST RIGHT</h3>
-                    </Col>
-                </Row>
+
+            <Container id="Hero" fluid style={styles.style}>
+
+                <div id="Header">
+                    <h1>A BETTER EXPERIENCE</h1>
+                    <h3>PLANTS JUST RIGHT</h3>
+                </div>
+
+                <div className="d-flex align-items-center flex-column bd-highlight mb-3">
+                    <Button> Button 1 </Button>
+                    <br/>
+                    <Button> Button 2 </Button>
+                    <br/>
+                    <Button> Button 3 </Button>
+                </div>
+
 
             </Container>
+
         );
     }
 }
