@@ -1,8 +1,13 @@
 import React, { Component } from 'react';
 import './App.css';
 import AppNavbar from './AppNavbar';
+import HomeHero from './HomeHero';
+import HomeTextRectangle from './HomeTextRectangle';
+import HomeTabs from './HomeTabs';
+import GoldiSurvey from './GoldiSurvey';
+
 import { Link } from 'react-router-dom';
-import { Button, Container } from 'reactstrap';
+import { Button } from 'reactstrap';
 import { withCookies } from 'react-cookie';
 
 class Home extends Component {
@@ -50,23 +55,32 @@ class Home extends Component {
     render() {
         const message = this.state.user ?
             <h2>Welcome, {this.state.user.name}!</h2> :
-            <p>Please log in to manage your JUG Tour.</p>;
+            <p>Log in to get started.</p>;
 
         const button = this.state.isAuthenticated ?
             <div>
-                <Button color="link"><Link to="/groups">Manage JUG Tour</Link></Button>
+                <Button color="link"><Link to="/products">Browse Products</Link></Button>
                 <br/>
                 <Button color="link" onClick={this.logout}>Logout</Button>
             </div> :
             <Button color="primary" onClick={this.login}>Login</Button>;
 
+        const gsurvey = this.state.isAuthenticated ?
+            <GoldiSurvey/> : <div><p>Log in to get started</p></div>
+
+
         return (
             <div>
                 <AppNavbar/>
-                <Container fluid>
-                    {message}
+
+
+                    <HomeHero/>
+                    <HomeTextRectangle/>
+                    <HomeTabs/>
+                    {gsurvey}
                     {button}
-                </Container>
+
+
             </div>
         );
     }

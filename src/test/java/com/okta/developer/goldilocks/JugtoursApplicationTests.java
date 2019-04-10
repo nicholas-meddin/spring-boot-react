@@ -1,4 +1,4 @@
-package com.okta.developer.jugtours;
+package com.okta.developer.goldilocks;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

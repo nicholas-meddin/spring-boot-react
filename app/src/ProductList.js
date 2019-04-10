@@ -5,7 +5,7 @@ import { Link, withRouter } from 'react-router-dom';
 import { instanceOf } from 'prop-types';
 import { withCookies, Cookies } from 'react-cookie';
 
-class GroupList extends Component {
+class ProductList extends Component {
     static propTypes = {
         cookies: instanceOf(Cookies).isRequired
     };
@@ -13,21 +13,21 @@ class GroupList extends Component {
     constructor(props) {
         super(props);
         const {cookies} = props;
-        this.state = {groups: [], csrfToken: cookies.get('XSRF-TOKEN'), isLoading: true};
+        this.state = {products: [], csrfToken: cookies.get('XSRF-TOKEN'), isLoading: true};
         this.remove = this.remove.bind(this);
     }
 
     componentDidMount() {
         this.setState({isLoading: true});
 
-        fetch('api/groups', {credentials: 'include'})
+        fetch('api/products', {credentials: 'include'})
             .then(response => response.json())
-            .then(data => this.setState({groups: data, isLoading: false}))
+            .then(data => this.setState({products: data, isLoading: false}))
             .catch(() => this.props.history.push('/'));
     }
 
     async remove(id) {
-        await fetch(`/api/group/${id}`, {
+        await fetch(`/api/product/${id}`, {
             method: 'DELETE',
             headers: {
                 'X-XSRF-TOKEN': this.state.csrfToken,
@@ -36,34 +36,31 @@ class GroupList extends Component {
             },
             credentials: 'include'
         }).then(() => {
-            let updatedGroups = [...this.state.groups].filter(i => i.id !== id);
-            this.setState({groups: updatedGroups});
+            let updatedProducts = [...this.state.products].filter(i => i.id !== id);
+            this.setState({products: updatedProducts});
         });
     }
 
     render() {
-        const {groups, isLoading} = this.state;
+        const {products, isLoading} = this.state;
 
         if (isLoading) {
             return <p>Loading...</p>;
         }
 
-        const groupList = groups.map(group => {
-            const address = `${group.address || ''} ${group.city || ''} ${group.stateOrProvince || ''}`;
-            return <tr key={group.id}>
-                <td style={{whiteSpace: 'nowrap'}}>{group.name}</td>
+        const productList = products.map(product => {
+            const address = `${product.dispensary.address || ''} ${product.dispensary.city || ''} ${product.dispensary.stateOrProvince || ''}`;
+            return <tr key={product.id}>
+                <td style={{whiteSpace: 'nowrap'}}>{product.name}</td>
                 <td>{address}</td>
-                <td>{group.events.map(event => {
-                    return <div key={event.id}>{new Intl.DateTimeFormat('en-US', {
-                        year: 'numeric',
-                        month: 'long',
-                        day: '2-digit'
-                    }).format(new Date(event.date))}: {event.title}</div>
+                <td>{product.strains.map(strain => {
+                    return <div key={strain.id}>{strain.name}: {strain.description}</div>
                 })}</td>
+                <td>{product.type}</td>
                 <td>
                     <ButtonGroup>
-                        <Button size="sm" color="primary" tag={Link} to={"/groups/" + group.id}>Edit</Button>
-                        <Button size="sm" color="danger" onClick={() => this.remove(group.id)}>Delete</Button>
+                        <Button size="sm" color="primary" tag={Link} to={"/products/" + product.id}>Edit</Button>
+                        <Button size="sm" color="danger" onClick={() => this.remove(product.id)}>Delete</Button>
                     </ButtonGroup>
                 </td>
             </tr>
@@ -73,21 +70,20 @@ class GroupList extends Component {
             <div>
                 <AppNavbar/>
                 <Container fluid>
-                    <div className="float-right">
-                        <Button color="success" tag={Link} to="/groups/new">Add Group</Button>
-                    </div>
-                    <h3>My JUG Tour</h3>
+
+                    <h2>Products</h2>
                     <Table className="mt-4">
                         <thead>
                         <tr>
                             <th width="20%">Name</th>
                             <th width="20%">Location</th>
-                            <th>Events</th>
+                            <th>Strain</th>
+                            <th>Type</th>
                             <th width="10%">Actions</th>
                         </tr>
                         </thead>
                         <tbody>
-                        {groupList}
+                        {productList}
                         </tbody>
                     </Table>
                 </Container>
@@ -96,4 +92,4 @@ class GroupList extends Component {
     }
 }
 
-export default withCookies(withRouter(GroupList));
+export default withCookies(withRouter(ProductList));
