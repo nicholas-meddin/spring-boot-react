@@ -37,14 +37,53 @@ h3 {
   color: black;
 }
 
-#Hero {
-  width: 100%;
-  height: 100vh;
+hr {
+  display: block;
+  height: 2px;
+  border: 2px;
+  size: 10px;
+  width: 7%;
+  border-top: 3px solid #ccc;
+  margin: 1em auto;
+  padding: 0;
 }
 
-#Header {
-  padding-top: 50px;
+
+#Hero {
+  width: 100%;
+  height: 800px;
+  margin: 0;
+  background-color: antiquewhite;
+}
+
+#HeroHeader {
+  padding-top: 200px;
   padding-bottom: 50px;
+}
+
+#HomeTextRectangle {
+  width: 100%;
+  height: 300px;
+  margin: 0;
+}
+
+#htrH1 {
+  margin-top: 1%;
+}
+
+#htrH3 {
+  margin-left: 25%;
+  margin-right: 25%;
+  font-size: large;
+}
+
+#HomeTabs {
+  background-color: whitesmoke;
+}
+
+#tabsSpan {
+  margin-top: -50px;
+  margin-left: 20px;
 }
 
 @keyframes App-logo-spin {

@@ -1,22 +1,13 @@
 import React from 'react';
-import {Container, Button, Row, Col} from 'reactstrap';
-
-const styles = {
-    style: {
-        backgroundColor: `antiqueWhite`,
-
-
-    }
-};
+import {Container, Button} from 'reactstrap';
 
 export default class HomeHero extends React.Component {
     render() {
+
         return (
+            <Container id="Hero" fluid>
 
-
-            <Container id="Hero" fluid style={styles.style}>
-
-                <div id="Header">
+                <div id="HeroHeader">
                     <h1>A BETTER EXPERIENCE</h1>
                     <h3>PLANTS JUST RIGHT</h3>
                 </div>

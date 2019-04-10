@@ -2,11 +2,12 @@ import React, { Component } from 'react';
 import './App.css';
 import AppNavbar from './AppNavbar';
 import HomeHero from './HomeHero';
+import HomeTextRectangle from './HomeTextRectangle';
+import HomeTabs from './HomeTabs';
 import GoldiSurvey from './GoldiSurvey';
-import ProductList from './ProductList';
 
 import { Link } from 'react-router-dom';
-import { Button, Container } from 'reactstrap';
+import { Button } from 'reactstrap';
 import { withCookies } from 'react-cookie';
 
 class Home extends Component {
@@ -74,6 +75,8 @@ class Home extends Component {
 
 
                     <HomeHero/>
+                    <HomeTextRectangle/>
+                    <HomeTabs/>
                     {gsurvey}
                     {button}
 
