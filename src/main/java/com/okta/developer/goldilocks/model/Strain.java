@@ -17,8 +17,11 @@ public class Strain {
 
     @Id
     @GeneratedValue
+    @Column(name = "STRAIN_ID")
     private Long id;
+    @Column(name = "STRAIN_NAME")
     private String name;
+    @Column(name = "STRAIN_DESCRIPTION")
     private String description;
     private HashSet<String> tags;
     private HashSet<String> flavors;
